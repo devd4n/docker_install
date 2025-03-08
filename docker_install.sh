@@ -5,6 +5,8 @@ DOCKER_USERNAME=docker_user
 # Überprüfe die Distribution (Ubuntu oder Debian)
 if [ -f /etc/debian_version ]; then
     DISTRO=$(lsb_release -is)
+    # change all chars to lower case
+    DISTRO=$(echo "$DISTRO" | tr '[:upper:]' '[:lower:]')
 else
     echo "Nicht unterstützte Distribution"
     exit 1
